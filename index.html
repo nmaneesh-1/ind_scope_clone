@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INDSCOPE</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Scroll Reveal Animation Library -->
+<script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+<!-- icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+      /* ===================================
+         GLOBAL RESET & BASE
+      =================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Golos Text", sans-serif;
+      }
+
+      body {
+         background: #080b14; 
+        color: white;
+        min-height: 100vh;
+      }
+
+
+
+/* Initial state for scroll reveal elements */
+.hero-left h1,
+.hero-left p,
+.buttons,
+.hero-right img,
+.about-pill,
+.about-content-heading,
+.about-media .video-card,
+.about-content p,
+.services-visual img,
+.services-content .about-pill,
+.services-content .title,
+.accordion-item,
+.portfolio-header .about-pill,
+.portfolio-header h2,
+.view-all,
+.card,
+.services-header .pill,
+.services-header h2 {
+  visibility: hidden;
+}
+      /* ===================================
+         NAVBAR
+      =================================== */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 80px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+
+      .logo-icon {
+        font-size: 26px;
+        color: #6ec1ff;
+      }
+
+      .logo-text {
+        font-size: 20px;
+      }
+
+      nav a {
+        margin: 0 16px;
+        text-decoration: none;
+        color: #ccc;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      nav a.active,
+      nav a:hover {
+        color: #ff9f1c;
+      }
+
+      .socials span {
+        margin-left: 14px;
+        cursor: pointer;
+        opacity: 0.8;
+      }
+
+      /* ===================================
+         HERO SECTION
+      =================================== */
+      .hero-wrapper {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .hero-bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      }
+
+      .navbar,
+      .hero {
+        position: relative;
+        z-index: 2;
+        background: transparent;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px 40px;
+      }
+
+      .hero-left {
+        max-width: 600px;
+      }
+
+      .hero-left h1 {
+        font-size: 77px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 30px;
+      }
+
+      .hero-left p {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #ddd;
+      }
+
+      .highlight {
+        color: #ff9f1c;
+        font-weight: 600;
+      }
+
+      .refund {
+        color: #6ec1ff;
+        font-weight: 600;
+      }
+
+      .buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn.primary {
+        background: #ff9f1c;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .hero-right img {
+        max-width: 420px;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+      }
+
+      /* ===================================
+         LOGO STRIP
+      =================================== */
+      .logo-strip {
+        margin-top: 40px;
+        padding: 40px 0;
+      }
+
+      .logo-strip-inner {
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+       
+      }
+
+      .logo-strip-inner img {
+        width: 140px;
+        height: 100px;
+        opacity: 0.75;
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+      }
+
+      .logo-strip-inner img:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: translateY(-2px);
+      }
+
+      /* ===================================
+         ABOUT SECTION
+      =================================== */
+      .about-section {
+        background-color: #080b14;
+        color: #fff;
+        padding: 120px 100px;
+        font-family: Inter, sans-serif;
+      }
+
+      .about-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #d4d9e3;
+        margin-bottom: 24px;
+      }
+
+      .about-pill .dot {
+        width: 8px;
+        height: 8px;
+        background: #f6a11a;
+        border-radius: 50%;
+      }
+
+      .about-content-heading {
+        font-size: 54px;
+        line-height: 1.25;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1.6fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-media {
+        display: flex;
+        align-items: center;
+      }
+
+      .video-card {
+        width: 100%;
+        height: 100%;
+        max-width: 420px;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .video-card video {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        margin-bottom: 28px;
+      }
+
+      .about-content p {
+        max-width: 520px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #b6c0d1;
+      }
+
+      /* ===================================
+         SERVICES ACCORDION SECTION
+      =================================== */
+      .services-section {
+        padding: 70px 40px;
+        background-color: #080b14;
+      }
+
+      .services-container {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .services-visual {
+        background-image: url("./images/abstract-textured-backgound.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .services-visual img {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 500px;
+        max-width: 420px;
+        animation: float 5s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      /* .pill {
+        display: inline-block;
+        border: 1px solid #2a2f3a;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        margin-bottom: 18px;
+        color: #ff9f1c;
+      } */
+/* ===================================
+   UNIFIED PILL STYLING - NEAT & CONSISTENT
+=================================== */
+.about-pill,
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #d4d9e3;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.about-pill:hover,
+.pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Orange dot - always visible */
+.about-pill::before,
+.pill::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #ff9f1c;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(255, 159, 28, 0.4);
+}
+
+/* Hide any img inside pills since we're using the orange dot */
+.about-pill img,
+.pill img {
+  display: none;
+}
+
+/* Legacy dot class support (if used) */
+.about-pill .dot,
+.pill .dot {
+  display: none;
+}
+      .title {
+        font-size: 42px;
+        margin-bottom: 40px;
+      }
+
+      .accordion-header {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 26px;
+        padding: 26px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        text-align: left;
+      }
+
+      .accordion-header:hover {
+        color: #3b82f6;
+      }
+
+      .icon {
+        font-size: 30px;
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-item.active .icon {
+        transform: rotate(45deg); /* + becomes × when rotated 45deg */
+        color: #3b82f6;
+      }
+
+      .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.4s ease;
+        opacity: 0;
+        padding: 0 0;
+      }
+
+      .accordion-item.active .accordion-body {
+        max-height: 300px; /* Adjust if content is longer */
+        opacity: 1;
+        padding: 10px 0 30px 0;
+      }
+
+      .accordion-body p {
+        padding-bottom: 26px;
+        max-width: 540px;
+        color: #cbd5e1;
+        line-height: 1.7;
+      }
+
+      /* ===================================
+         PORTFOLIO SECTION
+      =================================== */
+      .portfolio-section {
+        padding: 90px 40px;
+        background: radial-gradient(circle at top, #0b0f1a, #05070d);
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .portfolio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .portfolio-header h2 {
+        font-size: 60px;
+        line-height: 1.2;
+        font-weight: 600;
+      }
+
+      .view-all {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: opacity 0.3s;
+      }
+
+      .view-all:hover {
+        opacity: 0.7;
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        padding: 0 60px;
+      }
+
+      .carousel {
+        overflow: hidden;
+      }
+
+      .track {
+        display: flex;
+        gap: 28px;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+     
+.card {
+  min-width: 420px;
+  height: 520px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  opacity: 1; 
+}
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(20, 25, 35, 0.9);
+        border: 1px solid #2a2f3a;
+        color: white;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 26px;
+        z-index: 10;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+
+      .nav:hover:not(.disabled) {
+        background: #1f2937;
+        border-color: #3b82f6;
+      }
+
+      .nav.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+      }
+
+      .dots span {
+        width: 10px;
+        height: 10px;
+        background: #2a2f3a;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dots span:hover {
+        background: #4a5166;
+      }
+
+      .dots span.active {
+        background: #3b82f6;
+        width: 30px;
+        border-radius: 5px;
+      }
+
+      /* ===================================
+         REVIEWS SECTION
+      =================================== */
+      .reviews {
+        background: radial-gradient(circle at top, #0b0f1a, #05070d);
+        padding: 70px 40px;
+        color: white;
+      }
+
+      .review-content {
+        position: relative;
+      }
+
+      .quotes-img {
+        position: absolute;
+        right: 35px;
+        bottom: 10px;
+        width: 180px;
+        height: 180px;
+        pointer-events: none;
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.6fr;
+        align-items: center;
+        gap: 80px;
+      }
+
+      .review-visual img {
+        width: 100%;
+        max-width: 420px;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .divider {
+        height: 1.5px;
+        background: #595d69;
+        margin: 20px 0 40px;
+      }
+
+      blockquote {
+        font-size: 36px;
+        line-height: 1.4;
+        font-weight: 700;
+        max-width: 780px;
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 40px;
+      }
+
+      .review-profile {
+        width: 65px;
+        height: 65px;
+        border-radius: 25%;
+      }
+
+      .author strong {
+        font-size: 18px;
+        display: block;
+      }
+
+      .author span {
+        color: #9aa3b2;
+        font-size: 16px;
+      }
+
+      /* ===================================
+         SERVICES GRID SECTION
+      =================================== */
+      .services {
+        background: linear-gradient(180deg, #05070d, #0b0f1a);
+        padding: 70px 40px;
+        color: white;
+      }
+
+      .services-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+      }
+
+      .services-header h2 {
+        font-size: 48px;
+        max-width: 640px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .service-card {
+        background: linear-gradient(180deg, #111624, #0a0e1a);
+        border-radius: 18px;
+        padding: 30px;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .service-card img {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .service-card h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        color: #9aa3b2;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .service-card a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      /* ===================================
+         VALUES SECTION
+      =================================== */
+      .values-section {
+        background: radial-gradient(circle at top left, #0b1220, #05070d);
+        padding: 70px 40px;
+        color: #fff;
+        position: relative;
+        font-family: Inter, sans-serif;
+      }
+
+      .values-container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .values-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+
+      .values-pill .dot {
+        width: 8px;
+        height: 8px;
+        background: #ffb020;
+        border-radius: 50%;
+      }
+
+      .values-left h2 {
+        font-size: 60px;
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+
+      .values-desc {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #cfd6e3;
+        max-width: 585px;
+        margin-bottom: 40px;
+      }
+
+      .values-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+      }
+
+      .values-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .values-list li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 16px;
+        font-size: 16px;
+      }
+
+      .values-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 18px;
+        height: 18px;
+        background-image: url("./images/check-mark\ \(1\).png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        color: #ffa32e;
+      }
+
+      .values-left {
+        width: 850px;
+      }
+
+      .values-right img {
+        width: 100%;
+        height: 500px;
+        border-radius: 18px;
+        object-fit: cover;
+      }
+
+      .values-character {
+        position: absolute;
+        bottom: 40px;
+        left: 45%;
+        width: 205px;
+        pointer-events: none;
+      }
+
+      /* ===================================
+         CONTACT HERO
+      =================================== */
+      .contact-hero {
+        position: relative;
+        height: 90vh;
+        background: url("./images/imgi_50_startup-business-team-brainstorming-on-meeting-wo-2025-02-10-09-24-35-utc.webp")
+          center / cover no-repeat;
+        display: flex;
+        align-items: center;
+        padding-left: 100px;
+        color: #fff;
+      }
+
+      .contact-hero .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 7, 13, 0.65);
+      }
+
+      .contact-hero .content {
+        position: relative;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .contact-hero h1 {
+        font-size: 60px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+
+      .contact-hero p {
+        font-size: 18px;
+        color: #d0d6e0;
+        max-width: 600px;
+        margin-bottom: 30px;
+      }
+
+      .contact-hero button {
+        background: #1f6cff;
+        border: none;
+        padding: 14px 36px;
+        border-radius: 999px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      /* ===================================
+         FOOTER
+      =================================== */
+      .footer {
+        background: radial-gradient(circle at top, #0b1220, #05070d);
+        color: #fff;
+        padding: 70px 40px;
+        font-family: Inter, sans-serif;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 160px;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 60px;
+      }
+
+      .footer h4 {
+        font-size: 18px;
+        letter-spacing: 1px;
+        color: #b6c0d1;
+        margin-bottom: 20px;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer ul li {
+        margin-bottom: 12px;
+        font-size: 17px;
+      }
+
+      .footer p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #d4d9e3;
+      }
+
+      .footer .phone {
+        margin-top: 16px;
+      }
+
+      .footer .right {
+        text-align: right;
+      }
+
+      .footer-col {
+        padding: 10px;
+      }
+
+      .socials {
+        display: flex;
+      }
+
+      .phone {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        color: #d4d9e3;
+      }
+
+      .phone svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      .socials span {
+        font-size: 17px;
+        margin-left: 10px;
+        color: #d4d9e3;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 50px;
+        padding-top: 20px;
+        padding-bottom: 60px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 17px;
+        color: #9aa4b2;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer-bg-text {
+        position: absolute;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 230px;
+        font-weight: 500;
+        letter-spacing: -6px;
+        white-space: nowrap;
+        color: #212633;
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+        z-index: 0;
+      }
+
+      /* ===================================
+         RESPONSIVE MEDIA QUERIES
+      =================================== */
+      @media (max-width: 1024px) {
+        .about-section {
+          padding: 100px 60px;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+.services-container{
+  grid-template-columns: 1fr 1fr;
+}
+        .about-media {
+          justify-content: center;
+        }
+
+        .about-content h1 {
+          font-size: 38px;
+        }
+
+        .card {
+          min-width: 380px;
+          height: 480px;
+        }
+
+        .portfolio-header h2 {
+          font-size: 48px;
+        }
+      }
+
+      @media (max-width: 900px) {
+  .logo-strip-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .logo-strip-inner img {
+    height: 80px;
+  
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 48px;
+  }
+.hero-left .buttons{
+  align-items: center;
+  justify-content: center;
+}
+  .hero-right img {
+    margin-top: 40px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+.services-section {
+    padding: 80px 40px;
+  }
+
+ 
+.services-visual{
+  width: 100%;
+
+}
+  .services-visual img {
+    width: 100%;
+    height: auto;
+  }
+
+  .services-content .title {
+    font-size: 38px;
+  }
+
+
+      @media (max-width: 768px) {
+        .carousel-wrapper {
+          padding: 0 50px;
+        }
+
+        .card {
+          min-width: 320px;
+          height: 420px;
+        }
+
+        .portfolio-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+
+        .portfolio-header h2 {
+          font-size: 36px;
+        }
+
+        .nav {
+          width: 40px;
+          height: 40px;
+          font-size: 22px;
+        }
+           .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+   
+}
+        .review-visual{
+          width: 100%;
+        }
+        .review-visual img {
+    display: block;
+     margin: auto;
+    animation: float 4s ease-in-out infinite;
+}
+   .quotes-img{
+    width: 100px;
+    height: 100px;
+   }
+   .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.services-container{
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+.floating-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.values-container {
+    display: grid;
+    grid-template-columns: 1fr;
+   
+   }
+   .values-right{
+    order: 1;
+   }
+   .values-character { 
+    bottom: 80px;
+  }
+   .values-left{
+    order: 2;
+    width: 100%;
+   }
+   .values-left h2{
+    font-size: 40px;
+   }
+   .values-list {
+    display: grid;
+    grid-template-columns: 1fr ;
+  gap: 0px;
+   
+}  
+.contact-hero h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 20px;
+   
+}
+.footer h4{
+  text-align: left;
+}
+.footer-bg-text {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 118px;
+    font-weight: 500;
+    letter-spacing: -6px;
+    white-space: nowrap;
+    color: #212633;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+}
+}
+
+
+      @media (max-width: 600px) {
+         .hero{
+        text-align: left;
+        }
+        .hero-right img{
+          width:100%;
+        }
+        .hero .buttons{
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .logo-strip-inner {
+          
+          padding: 20px 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+       
+    }
+        .about-section {
+          padding: 80px 24px;
+        }
+
+        .about-content-heading {
+          font-size: 30px;
+        }
+        .about-content p {
+          font-size: 15px;
+        }
+     blockquote {
+    font-size: 23px;
+    line-height: 1.4;
+    font-weight: 700;
+    max-width: 780px;
+}
+.quotes-img{
+  width: 70px;
+  height: 70px;
+}
+.services-header{
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.services-grid{
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+.values-left h2{
+  font-size: 28px;
+}
+.values-character{
+  order:4;
+}
+.socials{
+  
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer-bg-text {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: -6px;
+    white-space: nowrap;
+    color: #212633;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+}
+.contact-hero{
+   padding: 0px 40px;
+}
+.logo-strip-inner{
+ row-gap: 20px;
+}
+}
+@media (max-width: 375px){
+  .logo-strip-inner{
+   
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 30px;
+  }
+  
+}
+      
+        
+      /* ===================================
+   RESPONSIVE NAVBAR - MOBILE MENU
+=================================== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.hamburger ion-icon {
+  font-size: 32px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hamburger .icon-menu {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.hamburger .icon-close {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.hamburger.active .icon-menu {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.hamburger.active .icon-close {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #080b14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.mobile-nav a {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  color: #ff9f1c;
+}
+
+.mobile-socials span {
+  font-size: 28px;
+  margin: 0 16px;
+  opacity: 0.8;
+}
+
+/* Hide desktop nav/socials on mobile */
+@media (max-width: 900px) {
+  .desktop-nav,
+  .desktop-socials {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    padding: 20px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 20px 24px;
+  }
+
+  .mobile-nav a {
+    font-size: 28px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <!-- ===================================
+         HERO SECTION
+    =================================== -->
+    <section class="hero-wrapper">
+      <!-- Background Video -->
+      <img class="hero-bg-video" src="./images/milad-fakurian-seA-FPPXL-M-unsplash.jpg">
+        
+      </>
+
+     <!-- Navbar -->
+<header class="navbar">
+  <div class="logo">
+    <span class="logo-icon">
+      <img src="./images/indscope-logo.png" alt="logo" />
+    </span>
+  </div>
+
+  <nav class="desktop-nav">
+    <a class="active" href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="socials desktop-socials">
+    <span>f</span>
+    <span>x</span>
+    <span>▶</span>
+  </div>
+
+ <!-- Hamburger Button (Mobile/Tablet) -->
+<button class="hamburger" aria-label="Toggle menu">
+  <ion-icon name="menu-outline" class="icon-menu"></ion-icon>
+  <ion-icon name="close-outline" class="icon-close"></ion-icon>
+</button>
+</header>
+
+<!-- Full Screen Mobile Menu -->
+<div class="mobile-menu">
+  <nav class="mobile-nav">
+    <a href="#" class="active">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="mobile-socials">
+    <span>f</span>
+    <span>x</span>
+    <span>▶</span>
+  </div>
+</div>
+
+      <!-- Hero Content -->
+      <section class="hero">
+        <div class="hero-left">
+          <h1>
+            We Design.<br />
+            Google Finds.<br />
+            Clients Click.
+          </h1>
+
+          <p>
+            We get your business on
+            <span class="highlight">Google’s first page—guaranteed.</span>
+            If not, we <span class="refund">Refund</span> your money. Zero risk.
+            All results. That’s the INDSCOPE promise.
+          </p>
+
+          <div class="buttons">
+            <button class="btn primary">View Portfolio</button>
+            <button class="btn secondary">▶ Watch Reels</button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <img
+            src="./images/main-hero-digibiz-918x1024.webp"
+            alt="3D character working on laptop"
+          />
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================================
+         LOGO STRIP (TRUST BADGES)
+    =================================== -->
+    <section class="logo-strip">
+      <div class="logo-strip-inner">
+        <img src="./images/31.png" alt="Ultra Clear" />
+        <img src="./images/27.png" alt="Ultra Prestigious Award" />
+        <img src="./images/29.png" alt="International Mega Standard" />
+        <img src="./images/28.png" alt="QC Power XR2 Module" />
+        <img src="./images/30.png" alt="Hyper Best Award" />
+        <img src="./images/31.png" alt="Ultra Clear" />
+      </div>
+    </section>
+
+    <!-- ===================================
+         ABOUT SECTION
+    =================================== -->
+    <section class="about-section">
+     <span class="about-pill">
+  <img src="./images/radio.png" alt="icon" />
+  ABOUT US
+</span>
+
+      <h2 class="about-content-heading">
+        We design, develop, and drive results — turning websites into lead
+        machines and campaigns into ROI you can measure and trust.
+      </h2>
+
+      <div class="about-grid">
+        <!-- Left: Video -->
+        <div class="about-media">
+          <div class="video-card">
+            <video
+              src="./videos/about-us.mp4"
+              poster="./images/imgi_46_man-with-headphones-working-at-a-computer-in-an-of-2025-04-04-11-31-22-utc.webp"
+              controls
+              preload="metadata"
+            ></video>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="about-content">
+          <div class="divider"></div>
+          <p>
+            With 18 years of experience, INDSCOPE blends design, development,
+            and strategy to create impactful digital solutions that empower
+            businesses to grow, innovate, and stand out in today’s competitive
+            landscape.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+     SERVICES ACCORDION SECTION
+=================================== -->
+    <section class="services-section">
+      <div class="services-container">
+        <!-- Left: Visual -->
+        <div class="services-visual">
+          <img
+            src="https://indscope.in/wp-content/uploads/2025/06/digital-marketing-digibiz.webp"
+            alt="Trusted ecommerce web development company offering scalable solutions"
+            class="floating-image"
+          />
+        </div>
+
+        <!-- Right: Accordion -->
+        <div class="services-content">
+         <div class="about-pill">
+  <span class="elementor-icon-list-icon">
+    <img src="./images/radio.png" alt="" />
+  </span>
+  <span>What we do</span>
+</div>
+
+        
+
+          <div class="accordion">
+            <!-- Item 1 -->
+            <div class="accordion-item active">
+              <button class="accordion-header">
+                Web Development
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  We craft custom websites using WordPress, HTML, and PHP —
+                  built for speed, security, and scalability. Whether it’s a
+                  sleek corporate site or a dynamic platform, we deliver clean
+                  code, responsive design, and seamless performance across all
+                  devices.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Ecommerce Development
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  We specialize in WooCommerce, Shopify, and custom PHP-based
+                  stores. From setup to scaling, we create conversion-optimized
+                  eCommerce solutions tailored to your products, customers, and
+                  business goals — across mobile, desktop, and everything in
+                  between.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                SEO (Search Engine Optimization)
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  Get found where it matters—on the first page. Our SEO
+                  strategies drive targeted traffic, generate qualified leads,
+                  and improve rankings with 100% white-hat, data-driven
+                  techniques.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Mobile App Development
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  We design and develop sleek, intuitive mobile apps for iOS and
+                  Android. Whether it’s a startup MVP or enterprise-grade
+                  solution, we turn your ideas into smooth, scalable apps.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                PPC (Pay-Per-Click Advertising)
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  Reach the right audience fast with precision-targeted PPC
+                  campaigns. We optimize ad spend across Google and Meta to
+                  deliver high ROI and measurable business growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+         PORTFOLIO SECTION
+    =================================== -->
+    <section class="portfolio-section">
+      <div class="portfolio-header">
+        <div>
+         <span class="about-pill">
+  <img src="./images/radio.png" alt="icon" />
+  PORTFOLIO
+</span>
+          <h2>
+            Every Project, A Story of<br />
+            Measurable Success.
+          </h2>
+        </div>
+        <a href="#" class="view-all">View All →</a>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="nav prev">‹</button>
+
+        <div class="carousel">
+          <div class="track">
+            <div class="card">
+              <img src="./images/portfolio-digibiz-1.webp" alt="Portfolio 1" />
+            </div>
+            <div class="card">
+              <img src="./images/portfolio-digibiz-2.webp" alt="Portfolio 2" />
+            </div>
+            <div class="card">
+              <img src="./images/30.png" alt="Portfolio 2" />
+            </div>
+            <div class="card">
+              <img src="./images/portfolio-digibiz-3.webp" alt="Portfolio 3" />
+            </div>
+           
+            <div class="card">
+              <img src="./images/portfolio-digibiz-3.webp" alt="Portfolio 5" />
+            </div>
+          </div>
+        </div>
+
+        <button class="nav next">›</button>
+      </div>
+
+      <div class="dots"></div>
+    </section>
+
+    <!-- ===================================
+         REVIEWS SECTION
+    =================================== -->
+    <section class="reviews">
+      <div class="reviews-grid">
+        <div class="review-visual">
+          <img
+            src="./images/imgi_13_win-celebrate-digibiz.png"
+            alt="Winner Character"
+          />
+        </div>
+
+        <div class="review-content">
+         <span class="about-pill">
+  <img src="./images/radio.png" alt="icon" />
+  REVIEWS
+</span>
+          <div class="divider"></div>
+
+          <blockquote>
+            “This team transformed our vision into a stunning, high-performing
+            website. Their creativity and professionalism exceeded our
+            expectations, driving more traffic and engagement. Highly
+            recommend!”
+          </blockquote>
+
+          <img class="quotes-img" src="./images/close (1).png" alt="quotes" />
+
+          <div class="author">
+            <img
+              class="review-profile"
+              src="./images/imgi_14_portrait-of-cheerful-young-caucasian-man-holding-c-2023-11-27-05-18-35-utc-2.png"
+              alt="John Doe"
+            />
+            <div>
+              <strong>JOHN DOE</strong>
+              <span>Designer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+         SERVICES GRID SECTION
+    =================================== -->
+    <section class="services">
+      <div class="services-header">
+        <div class="services-head">
+          <span class="pill">
+            <img src="./images/radio.png" alt="icon" />
+            SERVICES
+          </span>
+          <h2>We handle clicks, you<br />handle customers.</h2>
+        </div>
+        <a href="#" class="view-all">View All <span>→</span></a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="./images/imgi_15_4.png" alt="Website" />
+          <h3>Website</h3>
+          <p>
+            Empowering brands with innovative designs and tailored strategies
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <img src="./images/imgi_16_STORE.png" alt="E-Commerce" />
+          <h3>E-Commerce</h3>
+          <p>
+            Empowering brands with innovative designs and tailored strategies
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="./images/imgi_17_SEARCH-ENGINE-OPTIMISATION.png"
+            alt="SEO"
+          />
+          <h3>SEO</h3>
+          <p>
+            Empowering brands with innovative designs and tailored strategies
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <img src="./images/imgi_18_ppc.png" alt="PPC" />
+          <h3>PPC</h3>
+          <p>
+            Empowering brands with innovative designs and tailored strategies
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+         VALUES SECTION
+    =================================== -->
+    <section class="values-section">
+      <div class="values-container">
+        <div class="values-left">
+          <span class="about-pill">
+            <span><img src="./images/radio.png" alt="icon" /></span> OUR VALUES
+          </span>
+
+          <h2>
+            Driven by Purpose. Powered<br />
+            by Real Results.
+          </h2>
+
+          <p class="values-desc">
+            We take your business to Google’s top spot using battle-tested SEO
+            techniques that generate visibility, authority, leads, and lasting
+            results.
+          </p>
+
+          <div class="values-list">
+            <ul>
+              <li>Transparency</li>
+              <li>Innovation</li>
+              <li>Results-Driven</li>
+              <li>Client-Centric</li>
+            </ul>
+
+            <ul>
+              <li>Integrity</li>
+              <li>Accountability</li>
+              <li>Collaboration</li>
+              <li>Excellence</li>
+            </ul>
+
+            <ul>
+              <img
+                class="values-character"
+                src="./images/imgi_19_contact-fly-digibiz.webp"
+                alt="Decorative character"
+              />
+            </ul>
+          </div>
+        </div>
+
+        <div class="values-right">
+          <img
+            src="./images/imgi_20_shot-of-a-designer-posing-in-the-office-with-colle-2025-04-06-08-43-02-utc.webp"
+            alt="Team member"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+         CONTACT HERO
+    =================================== -->
+    <section class="contact-hero">
+      <div class="overlay"></div>
+
+      <div class="content">
+        <span class="about-pill">
+          <span><img src="./images/radio.png" alt="icon" /></span> CONTACT
+        </span>
+        <h1>Start your digital journey<br />with confidence</h1>
+        <p>
+          Empowering brands with innovative designs and tailored strategies to
+          thrive and grow in the ever-evolving digital landscape.
+        </p>
+        <button>Get Started</button>
+      </div>
+    </section>
+
+    <!-- ===================================
+         FOOTER
+    =================================== -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h4>MENU</h4>
+          <ul>
+            <li>Portfolio</li>
+            <li>Expertise</li>
+            <li>Insight</li>
+            <li>About us</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>OFFICE</h4>
+          <p>
+            3C 802, Provident Park Square,<br />
+            Judicial Layout, Bangalore 560062, India
+          </p>
+          <p class="phone">
+            <span class="elementor-icon-list-icon">
+              <svg
+                aria-hidden="true"
+                class="e-font-icon-svg e-fas-mobile-alt"
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"
+                ></path>
+              </svg>
+            </span>
+            +91 9741756319
+          </p>
+        </div>
+
+        <div class="footer-col right">
+          <h4>FOLLOW US</h4>
+          <div class="socials">
+            <span>Linkedin</span>
+            <span>|</span>
+            <span>Instagram</span>
+            <span>|</span>
+            <span>Facebook</span>
+            <span>|</span>
+            <span>Youtube</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Powered by Indscope Technologies</span>
+        <span>Terms & Condition</span>
+      </div>
+
+      <div class="footer-bg-text">Digital Agency</div>
+    </footer>
+
+    <!-- ===================================
+         JAVASCRIPT
+    =================================== -->
+    <script>
+      // Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking a link (optional)
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+      // Enhanced Accordion Functionality
+      document.querySelectorAll(".accordion-header").forEach((button) => {
+        button.addEventListener("click", () => {
+          const accordionItem = button.parentElement;
+          const isActive = accordionItem.classList.contains("active");
+          const body = accordionItem.querySelector(".accordion-body");
+          const icon = button.querySelector(".icon");
+
+          // Close all other items
+          document.querySelectorAll(".accordion-item").forEach((item) => {
+            if (item !== accordionItem) {
+              item.classList.remove("active");
+              item.querySelector(".icon").textContent = "+";
+              item.querySelector(".accordion-body").style.maxHeight = null;
+            }
+          });
+
+          // Toggle current item
+          if (isActive) {
+            accordionItem.classList.remove("active");
+            icon.textContent = "+";
+            body.style.maxHeight = null;
+          } else {
+            accordionItem.classList.add("active");
+            icon.textContent = "−";
+            body.style.maxHeight = body.scrollHeight + 50 + "px"; // Extra space for padding
+          }
+        });
+      });
+
+      // Initialize first item open
+      window.addEventListener("load", () => {
+        const firstItem = document.querySelector(".accordion-item");
+        if (firstItem && !firstItem.classList.contains("active")) {
+          firstItem.classList.add("active");
+          firstItem.querySelector(".icon").textContent = "−";
+          const body = firstItem.querySelector(".accordion-body");
+          body.style.maxHeight = body.scrollHeight + 50 + "px";
+        }
+      });
+
+    
+     // Portfolio Carousel - Enhanced Version
+// Portfolio Carousel - Fixed & Responsive
+const track = document.querySelector(".track");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const dotsContainer = document.querySelector(".dots");
+
+// Replace portfolio images with online images
+const portfolioImages = [
+  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=1000&fit=crop',
+  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=1000&fit=crop',
+  'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=1000&fit=crop',
+  'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=800&h=1000&fit=crop'
+];
+
+// Update card images
+document.querySelectorAll('.card').forEach((card, index) => {
+  const img = card.querySelector('img');
+  if (img && portfolioImages[index]) {
+    img.src = portfolioImages[index];
+    img.alt = `Portfolio Project ${index + 1}`;
+  }
+});
+
+const cards = document.querySelectorAll(".card");
+let currentIndex = 0;
+
+function getVisibleCards() {
+  const width = window.innerWidth;
+  if (width <= 600) return 1;
+  if (width <= 1024) return 2;
+  return 3;
+}
+
+function getCardWidth() {
+  if (cards.length === 0) return 0;
+  return cards[0].offsetWidth;
+}
+
+function getGap() {
+  const trackStyle = window.getComputedStyle(track);
+  return parseInt(trackStyle.gap) || 28;
+}
+
+function getMaxIndex() {
+  const visibleCards = getVisibleCards();
+  return Math.max(0, cards.length - visibleCards);
+}
+
+function updateCarousel() {
+  if (!track || cards.length === 0) return;
+  
+  const cardWidth = getCardWidth();
+  const gap = getGap();
+  const offset = -(currentIndex * (cardWidth + gap));
+  
+  track.style.transform = `translateX(${offset}px)`;
+  updateArrows();
+  updateDots();
+}
+
+function updateArrows() {
+  const maxIndex = getMaxIndex();
+  
+  if (prevBtn) {
+    prevBtn.classList.toggle("disabled", currentIndex === 0);
+    prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+  }
+  
+  if (nextBtn) {
+    nextBtn.classList.toggle("disabled", currentIndex >= maxIndex);
+    nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+  }
+}
+
+function updateDots() {
+  const dots = dotsContainer.querySelectorAll("span");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+}
+
+function createDots() {
+  if (!dotsContainer) return;
+  
+  dotsContainer.innerHTML = "";
+  const maxIndex = getMaxIndex();
+  const totalDots = maxIndex + 1;
+
+  for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement("span");
+    if (i === currentIndex) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateCarousel();
+    });
+
+    dotsContainer.appendChild(dot);
+  }
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
+    const maxIndex = getMaxIndex();
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+}
+
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const maxIndex = getMaxIndex();
+    currentIndex = Math.min(currentIndex, maxIndex);
+    createDots();
+    updateCarousel();
+  }, 200);
+});
+
+// Initialize
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    createDots();
+    updateCarousel();
+  }, 300);
+});
+    // Scroll Reveal Animations - Fixed Version
+window.addEventListener('load', () => {
+  if (typeof ScrollReveal === 'undefined') {
+    console.error('ScrollReveal not loaded');
+    return;
+  }
+
+  const sr = ScrollReveal({
+    distance: '60px',
+    duration: 1000,
+    delay: 100,
+    easing: 'ease-out',
+    origin: 'bottom',
+    reset: false,
+    mobile: true,
+    opacity: 0,
+    scale: 1
+  });
+
+  // Hero Section
+  sr.reveal('.hero-left h1', { delay: 200, distance: '80px', duration: 1200 });
+  sr.reveal('.hero-left p', { delay: 400, duration: 1200 });
+  sr.reveal('.buttons', { delay: 600, duration: 1200 });
+  sr.reveal('.hero-right img', { delay: 500, origin: 'right', distance: '100px', duration: 1200 });
+
+  // About Section
+  sr.reveal('.about-pill', { delay: 100 });
+  sr.reveal('.about-content-heading', { delay: 300 });
+  sr.reveal('.about-media .video-card', { delay: 400, origin: 'left', distance: '80px' });
+  sr.reveal('.about-content p', { delay: 500, origin: 'right', distance: '60px' });
+
+  // Services Accordion ("What we do")
+  sr.reveal('.services-visual img', { delay: 200, origin: 'left', distance: '80px' });
+  sr.reveal('.services-content .about-pill', { delay: 200 });
+  sr.reveal('.services-content .title', { delay: 400 });
+  sr.reveal('.accordion-item', { interval: 150, delay: 500 });
+
+  // Portfolio Section
+  sr.reveal('.portfolio-header .about-pill', { delay: 100 });
+  sr.reveal('.portfolio-header h2', { delay: 300 });
+  sr.reveal('.view-all', { delay: 400, origin: 'right', distance: '40px' });
+  sr.reveal('.card', { interval: 150, delay: 500, distance: '80px' });
+
+  // Services Grid (cards from sides)
+  sr.reveal('.services-header .pill', { delay: 100 });
+  sr.reveal('.services-header h2', { delay: 300 });
+  // sr.reveal('.services-grid .service-card:nth-child(odd)', { 
+  //   origin: 'left', distance: '80px', interval: 150, delay: 400
+  // });
+  // sr.reveal('.services-grid .service-card:nth-child(even)', { 
+  //   origin: 'right', distance: '80px', interval: 150, delay: 400
+  // });
+});
+    </script>
+  </body>
+</html>
