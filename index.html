@@ -66,61 +66,183 @@
 .services-header h2 {
   visibility: hidden;
 }
-      /* ===================================
-         NAVBAR
-      =================================== */
-      .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 80px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        
-      }
+     
+   /* ===================================
+   NAVBAR
+=================================== */
 
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 700;
-      }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-      .logo-icon {
-        font-size: 26px;
-        color: #6ec1ff;
-      }
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
 
-      .logo-text {
-        font-size: 20px;
-      }
+.logo-icon {
+  font-size: 26px;
+  color: #6ec1ff;
+}
 
-      nav a {
-        margin: 0 16px;
-        text-decoration: none;
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 16px;
-      }
+.logo-text {
+  font-size: 20px;
+}
 
-      nav a.active,
-      nav a:hover {
-        color: #ff9f1c;
-      }
+/* DESKTOP NAV LINKS */
+nav a {
+  margin: 0 16px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+}
 
-      .socials span {
-        margin-left: 14px;
-        cursor: pointer;
-        opacity: 0.8;
-      }
+nav a.active,
+nav a:hover {
+  color: #ff9f1c;
+}
+
+/* SOCIAL ICONS */
+.socials span {
+  margin-left: 14px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* ===================================
+   DESKTOP DROPDOWN
+=================================== */
+
+.nav-item {
+  position: relative;
+  display: inline-block;
+}
+
+.has-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Dropdown panel */
+.dropdown {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 0;
+  min-width: 260px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px 22px;
+  color: #080b14;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===================================
+   MOBILE DROPDOWN (RIGHT SIDE)
+=================================== */
+
+.mobile-dropdown {
+  position: relative;
+  width: 100%;
+  margin: 0 16px;
+}
+
+/* Button */
+.mobile-dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #cccccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Side panel dropdown */
+.mobile-dropdown-menu {
+  position: absolute;
+  top: 65px;
+  left: -20%;
+  width: 260px;
+  background: #080b14;
+  padding: 18px;
+  border: 1px solid rgb(39, 39, 39);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+/* Dropdown links */
+.mobile-dropdown-menu a {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.mobile-dropdown-menu a:hover {
+  color: #ff9f1c;
+}
+
+/* Active state */
+.mobile-dropdown.active .mobile-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
 
       /* ===================================
          HERO SECTION
       =================================== */
       .hero-wrapper {
-        position: relative;
-        /* min-height: 100vh; */
-        overflow: hidden;
-      }
+  position: relative;
+  min-height: 70vh;   /* instead of auto */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 
       .hero-bg-video {
         position: absolute;
@@ -145,6 +267,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 60px 60px;
+       
+        margin: auto;
       }
 
       .hero-left {
@@ -209,6 +333,7 @@
         filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
       }
 
+
       /* ===================================
          LOGO STRIP
       =================================== */
@@ -218,7 +343,7 @@
       }
 
       .logo-strip-inner {
-        max-width: 1400px;
+        max-width: 1300px;
         margin: auto;
         display: flex;
         align-items: center;
@@ -245,6 +370,8 @@
          ABOUT SECTION
       =================================== */
       .about-section {
+        max-width: 1300px;
+        margin: auto;
         background-color: #080b14;
         color: #fff;
         padding: 120px 100px;
@@ -331,9 +458,11 @@
 
       .services-container {
         display: grid;
-        grid-template-columns: 1fr 1.2fr;
+        grid-template-columns: 1fr 1fr;
         gap: 80px;
         align-items: center;
+        max-width: 1300px;
+        margin: auto;
       }
 
       .services-visual {
@@ -482,11 +611,21 @@
 =================================== */
 .portfolio-section {
   padding: 90px 40px 120px;
-  background: radial-gradient(circle at top, #0b0f1a, #05070d);
+  background: #080b14;
   max-width: 1600px;
   margin: 0 auto;
 }
-
+/* Ensure pagination is visible on all screens */
+.portfolio-carousel .swiper-pagination {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
 .portfolio-header {
   display: flex;
   justify-content: space-between;
@@ -510,103 +649,108 @@
 }
 .view-all:hover { opacity: 0.7; }
 
-.portfolio-carousel {
-  position: relative;
-  padding: 0 70px 100px 70px;
-  overflow: hidden;
-}
+  /* ===== Carousel ===== */
+      .portfolio-carousel {
+        margin-top: 60px;
+        position: relative;
+        overflow: hidden;
+      }
 
-.swiper-slide {
-  width: auto !important; /* Let Swiper control width */
-}
+      .carousel-track {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        transition: transform 0.6s ease;
+      }
 
-.swiper-slide-inner {
-  display: block;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease;
-}
+      /* Cards */
+      .card {
+        flex: 0 0 760px;
+        height: 600px;
+        border-radius: 24px;
+        overflow: hidden;
+        opacity: 0.45;
+        transition: opacity 0.5s ease;
+      }
 
-.swiper-slide-image {
-  width: 100%;
-  height: 540px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
+      .card.active {
+        opacity: 1;
+      }
 
-.swiper-slide:hover .swiper-slide-inner {
-  transform: translateY(-12px);
-}
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-.swiper-slide:hover .swiper-slide-image {
-  transform: scale(1.06);
-}
+      /* Arrows */
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 10;
+      }
 
-/* Arrows - Exact Elementor Chevron Style */
-.portfolio-carousel .swiper-button-prev,
-.portfolio-carousel .swiper-button-next {
-  width: 56px;
-  height: 56px;
-  background: rgba(20, 25, 35, 0.9);
-  border-radius: 50%;
-  top: 50%;
-  margin-top: -28px;
-  transition: all 0.3s ease;
-}
+      .prev {
+        left: 24px;
+      }
+      .next {
+        right: 24px;
+      }
 
-.portfolio-carousel .swiper-button-prev svg,
-.portfolio-carousel .swiper-button-next svg {
-  width: 24px;
-  height: 24px;
-  fill: white;
-}
+      /* Dots */
+      .carousel-dots {
+        margin-top: 28px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
 
-.portfolio-carousel .swiper-button-prev:hover,
-.portfolio-carousel .swiper-button-next:hover {
-  background: #ff9f1c;
-  transform: scale(1.1);
-}
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #333;
+      }
 
-/* Pagination Dots */
-.portfolio-carousel .swiper-pagination {
-  bottom: 30px;
-}
+      .dot.active {
+        background: #186fff;
+        box-shadow: 0 0 6px rgba(24, 111, 255, 0.8);
+      }
 
-.portfolio-carousel .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.4);
-  opacity: 1;
-  transition: all 0.3s ease;
-}
+      /* ===== Responsive ===== */
+      @media (max-width: 1024px) {
+        .card {
+          flex: 0 0 85vw;
+          height: 380px;
+        }
+      }
 
-.portfolio-carousel .swiper-pagination-bullet-active {
-  background: #ff9f1c;
-  width: 36px;
-  border-radius: 12px;
-}
+      @media (max-width: 768px) {
+        .portfolio-title-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .portfolio-carousel { padding: 0 60px 80px; }
-  .swiper-slide-image { height: 480px; }
-}
-
-@media (max-width: 768px) {
-  .portfolio-header h2 { font-size: 40px; }
-  .portfolio-carousel { padding: 0 0 80px 0; }
-  .swiper-slide-image { height: 420px; border-radius: 22px; }
-  .portfolio-carousel .swiper-button-prev,
-  .portfolio-carousel .swiper-button-next { display: none; }
-}
+        .card {
+          flex: 0 0 90vw;
+          height: 320px;
+        }
+      }
 
       /* ===================================
          REVIEWS SECTION
       =================================== */
       .reviews {
-        background: radial-gradient(circle at top, #0b0f1a, #05070d);
+        background:#080b14;
         padding: 70px 40px;
         color: white;
       }
@@ -618,7 +762,7 @@
       .quotes-img {
         position: absolute;
         right: 35px;
-        bottom: 10px;
+        bottom: -35px;
         width: 180px;
         height: 180px;
         pointer-events: none;
@@ -626,6 +770,8 @@
 
       .reviews-grid {
         display: grid;
+        max-width: 1300px;
+        margin: auto;
         grid-template-columns: 0.8fr 1.6fr;
         align-items: center;
         gap: 80px;
@@ -647,7 +793,7 @@
         font-size: 36px;
         line-height: 1.4;
         font-weight: 700;
-        max-width: 780px;
+        max-width: 950px;
       }
 
       .author {
@@ -677,9 +823,11 @@
          SERVICES GRID SECTION
       =================================== */
       .services {
-        background: linear-gradient(180deg, #05070d, #0b0f1a);
+        background: #080b14;
         padding: 70px 40px;
         color: white;
+        max-width: 1300px;
+        margin: auto;
       }
 
       .services-header {
@@ -740,7 +888,7 @@
          VALUES SECTION
       =================================== */
       .values-section {
-        background: radial-gradient(circle at top left, #0b1220, #05070d);
+        background: #080b14;
         padding: 70px 40px;
         color: #fff;
         position: relative;
@@ -752,6 +900,8 @@
         grid-template-columns: 1.2fr 1fr;
         gap: 80px;
         align-items: center;
+        max-width: 1300px;
+        margin: auto;
       }
 
       .values-pill {
@@ -801,7 +951,8 @@
         position: relative;
         padding-left: 28px;
         margin-bottom: 16px;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 500;
       }
 
       .values-list li::before {
@@ -830,8 +981,8 @@
 
       .values-character {
         position: absolute;
-        bottom: 40px;
-        left: 45%;
+        bottom: 30px;
+        left: 48%;
         width: 205px;
         pointer-events: none;
       }
@@ -841,7 +992,7 @@
       =================================== */
       .contact-hero {
         position: relative;
-        height: 90vh;
+        height: 60vh;
         background: url("./images/imgi_50_startup-business-team-brainstorming-on-meeting-wo-2025-02-10-09-24-35-utc.webp")
           center / cover no-repeat;
         display: flex;
@@ -892,7 +1043,7 @@
          FOOTER
       =================================== */
       .footer {
-        background: radial-gradient(circle at top, #0b1220, #05070d);
+        background: #080b14;
         color: #fff;
         padding: 70px 40px;
         font-family: Inter, sans-serif;
@@ -905,6 +1056,8 @@
         display: grid;
         grid-template-columns: 1fr 1.5fr 1fr;
         gap: 60px;
+        max-width: 1300px;
+        margin: auto;
       }
 
       .footer h4 {
@@ -912,6 +1065,8 @@
         letter-spacing: 1px;
         color: #b6c0d1;
         margin-bottom: 20px;
+       
+        text-align: left;
       }
 
       .footer ul {
@@ -975,6 +1130,8 @@
         justify-content: space-between;
         font-size: 17px;
         color: #9aa4b2;
+        max-width: 1300px;
+        margin: auto;
       }
 
       .footer-top,
@@ -997,309 +1154,12 @@
         user-select: none;
         line-height: 1;
         z-index: 0;
+        max-width: 1300px;
+        margin: auto;
       }
 
-      /* ===================================
-         RESPONSIVE MEDIA QUERIES
-      =================================== */
-      @media (max-width: 1024px) {
-        .hero-left h1{
-          font-size: 70px;
-        }
-        .about-section {
-          padding: 100px 60px;
-        }
-
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 60px;
-        }
-        .logo-strip-inner{
-          padding: 10px 30px;
-          gap: 10px;
-        }
-        .services-grid{
-          grid-template-columns: repeat(2,1fr);
-        }
-.services-container{
-  grid-template-columns: 1fr 1fr;
-}
-        .about-media {
-          justify-content: center;
-        }
-
-        .about-content h1 {
-          font-size: 38px;
-        }
-
-        .card {
-          min-width: 380px;
-          height: 480px;
-        }
-
-        .portfolio-header h2 {
-          font-size: 48px;
-        }
-      }
-
-      @media (max-width: 900px) {
-  .logo-strip-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-
-  .logo-strip-inner img {
-    height: 80px;
-  
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-left h1 {
-    font-size: 48px;
-  }
-.hero-left .buttons{
-  align-items: center;
-  justify-content: center;
-}
-  .hero-right img {
-    margin-top: 40px;
-  }
-
-  nav {
-    display: none;
-  }
-}
-.services-section {
-    padding: 80px 40px;
-  }
-
- 
-.services-visual{
-  width: 100%;
-
-}
-  .services-visual img {
-    width: 100%;
-    height: auto;
-  }
-
-  .services-content .title {
-    font-size: 38px;
-  }
-
-
-      @media (max-width: 768px) {
-        .hero-left h1{
-          font-size: 80px;
-          line-height: 0.9;
-        }
-        .carousel-wrapper {
-          padding: 0 50px;
-        }
-
-        .card {
-          min-width: 320px;
-          height: 420px;
-        }
-
-        .portfolio-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 20px;
-        }
-
-        .portfolio-header h2 {
-          font-size: 36px;
-        }
-
-        .nav {
-          width: 40px;
-          height: 40px;
-          font-size: 22px;
-        }
-           .reviews-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
+    
    
-}
-        .review-visual{
-          width: 100%;
-        }
-        .review-visual img {
-    display: block;
-     margin: auto;
-    animation: float 4s ease-in-out infinite;
-}
-   .quotes-img{
-    width: 100px;
-    height: 100px;
-   }
-   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-.services-container{
-  grid-template-columns: 1fr;
-  gap: 50px;
-}
-.floating-image{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.values-container {
-    display: grid;
-    grid-template-columns: 1fr;
-   
-   }
-   .values-right{
-    order: 1;
-   }
-   .values-character { 
-    bottom: 80px;
-  }
-   .values-left{
-    order: 2;
-    width: 100%;
-   }
-   .values-left h2{
-    font-size: 40px;
-   }
-   .values-list {
-    display: grid;
-    grid-template-columns: 1fr ;
-  gap: 0px;
-   
-}  
-.contact-hero h1 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-.footer-top {
-    display: grid;
-    grid-template-columns: 1fr ;
-    gap: 20px;
-   
-}
-.footer h4{
-  text-align: left;
-}
-.footer-bg-text {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 118px;
-    font-weight: 500;
-    letter-spacing: -6px;
-    white-space: nowrap;
-    color: #212633;
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
-    z-index: 0;
-}
-}
-
-
-      @media (max-width: 600px) {
-         .hero{
-        text-align: left;
-        }
-        .hero-right img{
-          width:100%;
-        }
-        .hero .buttons{
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .logo-strip-inner {
-          
-          padding: 20px 40px;
-        flex-wrap: wrap;
-        justify-content: center;
-       
-    }
-        .about-section {
-          padding: 80px 24px;
-        }
-
-        .about-content-heading {
-          font-size: 30px;
-        }
-        .about-content p {
-          font-size: 15px;
-        }
-     blockquote {
-    font-size: 23px;
-    line-height: 1.4;
-    font-weight: 700;
-    max-width: 780px;
-}
-.quotes-img{
-  width: 70px;
-  height: 70px;
-}
-.services-header{
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-}
-.services-grid{
-  grid-template-columns: 1fr;
-  gap: 25px;
-}
-.values-left h2{
-  font-size: 28px;
-}
-.values-character{
-  order:4;
-}
-.socials{
-  
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.footer-bg-text {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 70px;
-    font-weight: 500;
-    letter-spacing: -6px;
-    white-space: nowrap;
-    color: #212633;
-    pointer-events: none;
-    user-select: none;
-    line-height: 1;
-    z-index: 0;
-}
-.contact-hero{
-   padding: 0px 40px;
-}
-.logo-strip-inner{
- row-gap: 20px;
-}
-}
-@media (max-width: 375px){
-  .logo-strip-inner{
-   
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 20px 30px;
-  }
-  
-}
-      
         
       /* ===================================
    RESPONSIVE NAVBAR - MOBILE MENU
@@ -1385,14 +1245,14 @@
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 32px;
   margin-top: 25px;
 }
 
 .mobile-nav a {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   color: #ccc;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -1414,40 +1274,222 @@
   opacity: 0.8;
 }
 
-/* Hide desktop nav/socials on mobile */
+/* ===================================
+   RESPONSIVE MEDIA QUERIES - CLEANED & ORDERED
+=================================== */
+@media (max-width: 1440px){
+.footer-bg-text{
+   left: 45%; 
+  font-size: 215px;
+ 
+}
+}
+@media (max-width: 1024px) {
+  .hero-left h1 { font-size: 70px; }
+  .about-section { padding: 100px 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .logo-strip-inner { padding: 10px 30px; gap: 10px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-container { grid-template-columns: 1fr 1fr; }
+  .about-media { justify-content: center; }
+  .about-content h1 { font-size: 38px; }
+  .card { min-width: 380px; height: 480px; }
+  .portfolio-header h2 { font-size: 48px; }
+  .values-left{
+    width: 50%;;
+  }
+  .values-container{
+   gap: 30px;
+  }
+  .values-left{
+    width: 600px;
+  }
+  .values-character{
+    left: 40%;
+  }
+  .values-left h2{
+    width: 450px;
+    font-size: 42px;
+  }
+  .values-desc{
+    width: 430px;
+  }
+}
+
 @media (max-width: 900px) {
- .desktop-nav,
-  .desktop-socials {
-    display: none;
+  .logo-strip-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .logo-strip-inner img { height: 80px; }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-left h1 { font-size: 48px; }
+  .hero-left .buttons { justify-content: center; }
+  .hero-right img { margin-top: 40px; }
+
+  /* Hide desktop nav & show hamburger */
+  .desktop-nav, .desktop-socials { display: none; }
+  .hamburger { display: block; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; position: sticky; }
+  .navbar { padding: 20px 40px; position: relative; z-index: 1002; }
+
+  .hero-left h1 { font-size: 80px; line-height: 0.9; }
+.about-content-heading{
+  font-size: 34px;
+}
+  .reviews-grid { grid-template-columns: 1fr; }
+  .review-visual img { display: block; margin: auto; }
+  .quotes-img { width: 100px; height: 100px; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .services-container { grid-template-columns: 1fr; gap: 50px; }
+
+  .values-container { grid-template-columns: 1fr; }
+  .values-right { order: 1; }
+  .values-left { order: 2; width: 100%; }
+  .values-left h2 { font-size: 40px; width: 100%;}
+  .values-desc{
+    width: 100%;
+  }
+  .portfolio-header h2{
+    font-size: 34px;
+  }
+  .values-list { grid-template-columns: 1fr; gap: 0; }
+  .values-character { bottom: 80px; }
+
+  .contact-hero h1 { font-size: 40px; line-height: 1.2; margin-bottom: 20px; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 20px; }
+  .footer h4 { text-align: left; }
+  .footer-bg-text {
+    left: 48%;
+    bottom: -20px;
+    font-size: 118px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero { text-align: left; padding: 30px; }
+  .hero-right img { width: 100%; }
+  .hero .buttons { flex-direction: column; align-items: flex-start; }
+
+  .logo-strip-inner { padding: 20px 40px; flex-wrap: wrap; justify-content: center; row-gap: 20px; }
+
+  .about-section { padding: 80px 24px; }
+  .about-content-heading { font-size: 30px; }
+  .about-content p { font-size: 15px; }
+
+  blockquote { font-size: 23px; }
+  .quotes-img { width: 70px; height: 70px; }
+
+  .services-header { flex-direction: column; align-items: flex-start; gap: 30px; }
+  .services-grid { grid-template-columns: 1fr; gap: 25px; }
+
+  .values-left h2 { font-size: 28px; }
+
+  .socials { align-items: flex-start; flex-wrap: wrap; }
+
+  .footer-bg-text {
+    bottom: -15px;
+    font-size: 70px;
   }
 
-  .hamburger {
-    display: block;
-  }
+  .contact-hero { padding: 0 40px; }
+}
 
-}
-@media (max-width:768px) {
-  .hamburger {
-    display: flex;
-    position: sticky;
-  }
-  .navbar {
-    padding: 20px 40px;
-    position: relative;
-    z-index: 1002;
-  }
-  
-}
 @media (max-width: 480px) {
-  .navbar {
-    padding: 20px 24px;
+  .navbar { padding: 20px 24px; }
+  .mobile-nav a { font-size: 18px; }
+  .hero-left h1 { font-size: 50px; line-height: 1.1; }
+  .hero-left p{
+    font-size: 22px;
+  }
+  .portfolio-header {
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    align-items: flex-start;
+  }
+  .portfolio-header{
+    padding: 0px;
+  }
+  .quotes-img{
+    bottom: 70px;
+  }
+  .services-header{
+    font-size: 30px;
+  }
+  .values-list {
+    grid-template-columns: 1fr;
+  }
+  .values-character{
+    visibility: hidden;
+  }
+  .contact-hero{
+    height: 70vh;
+  }
+  .contact-hero h1{
+    font-size: 38px;
+  }
+  .about-pill,.pill{
+    gap: 5px;
+    padding: 5px 18px;
+  }
+  .footer-bg-text{
+    left: 50%;
+  }
   }
 
-  .mobile-nav a {
+
+@media (max-width: 376px) {
+  .hero-left h1 { font-size: 36px; }
+.hero-left p{
+  font-size: 18px;
+}
+  .logo-strip-inner {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 30px;
+  }
+  .mobile-dropdown-menu {
+    top: 35px;
+    left: -40%;
+    width: 260px;
+  }
+  .accordion-header{
+    font-size: 24px;
+  }
+  .portfolio-header h2{
     font-size: 28px;
   }
-
+  .services-visual img{
+    height: fit-content;
+  }
+  .services-header h2{
+    font-size: 28px;
+  }
+  .socials{
+    flex-direction: column;
+  }
+  
+  .footer-bottom{
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 20px;
+  }
+  .footer-bg-text{
+font-size: 64px;
+  }
 }
+   
     </style>
   </head>
   <body>
@@ -1471,7 +1513,16 @@
   <nav class="desktop-nav">
     <a class="active" href="#">Home</a>
     <a href="#">About Us</a>
-    <a href="#">Services</a>
+    <div class="nav-item has-dropdown">
+  <a href="#">Services <span class="arrow">▾</span></a>
+
+  <div class="dropdown">
+    <a href="#">Web Development</a>
+    <a href="#">Ecommerce Web Development</a>
+    <a href="#">SEO Services</a>
+  </div>
+</div>
+
     <a href="#">Portfolio</a>
     <a href="#">Contact</a>
   </nav>
@@ -1495,7 +1546,18 @@
   <nav class="mobile-nav">
     <a href="#" class="active">Home</a>
     <a href="#">About Us</a>
-    <a href="#">Services</a>
+    <div class="mobile-dropdown">
+  <button class="mobile-dropdown-btn">
+    Services <span>+</span>
+  </button>
+
+  <div class="mobile-dropdown-menu">
+    <a href="#">Web Development</a>
+    <a href="#">Ecommerce Web Development</a>
+    <a href="#">SEO Services</a>
+  </div>
+</div>
+
     <a href="#">Portfolio</a>
     <a href="#">Contact</a>
   </nav>
@@ -1718,50 +1780,28 @@
     <a href="#" class="view-all">View All →</a>
   </div>
 
-  <!-- Elementor-Style Swiper Carousel -->
-  <div class="portfolio-carousel swiper">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide">
-        <a href="https://indscope.in/wp-content/uploads/2025/06/portfolio-digibiz-1.webp" data-elementor-open-lightbox="yes">
-          <figure class="swiper-slide-inner">
-            <img class="swiper-slide-image" src="./images/portfolio-digibiz-1.webp" alt="Book Mockup Project" />
-          </figure>
-        </a>
-      </div>
-      <!-- Slide 2 -->
-      <div class="swiper-slide">
-        <a href="https://indscope.in/wp-content/uploads/2025/06/portfolio-digibiz-2.webp" data-elementor-open-lightbox="yes">
-          <figure class="swiper-slide-inner">
-            <img class="swiper-slide-image" src="./images/portfolio-digibiz-2.webp" alt="Mobile Shopping App" />
-          </figure>
-        </a>
-      </div>
-      <!-- Slide 3 -->
-      <div class="swiper-slide">
-        <a href="https://indscope.in/wp-content/uploads/2025/06/portfolio-digibiz-3.webp" data-elementor-open-lightbox="yes">
-          <figure class="swiper-slide-inner">
-            <img class="swiper-slide-image" src="./images/portfolio-digibiz-3.webp" alt="1998 Bagels Cafe Branding" />
-          </figure>
-        </a>
-      </div>
-    </div>
+ <div class="portfolio-carousel">
+        <button class="nav-btn prev">‹</button>
 
-    <!-- Navigation Arrows (Chevron Style like Elementor) -->
-    <div class="swiper-button-prev">
-      <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-        <path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/>
-      </svg>
-    </div>
-    <div class="swiper-button-next">
-      <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-        <path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"/>
-      </svg>
-    </div>
+        <div class="carousel-track" style="transform: translateX(-4px);">
+          <div class="card active">
+            <img src="./images/portfolio-digibiz-2.webp">
+          </div>
+          <div class="card">
+            <img src="./images/portfolio-digibiz-3.webp">
+          </div>
+          <div class="card">
+            <img src="./images/portfolio-digibiz-1.webp">
+          </div>
+        </div>
 
-    <!-- Pagination Dots -->
-    <div class="swiper-pagination"></div>
-  </div>
+        <button class="nav-btn next">›</button>
+      </div>
+       <div class="carousel-dots">
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
 </section>
 
     <!-- ===================================
@@ -1900,7 +1940,7 @@
               <li>Excellence</li>
             </ul>
 
-            <ul>
+            <ul class="values-grphics">
               <img
                 class="values-character"
                 src="./images/imgi_19_contact-fly-digibiz.webp"
@@ -2002,10 +2042,9 @@
          JAVASCRIPT
     =================================== -->
     <script>
-      // Mobile Menu Toggle
+     // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
-
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('active');
@@ -2020,207 +2059,94 @@ document.querySelectorAll('.mobile-nav a').forEach(link => {
     document.body.style.overflow = '';
   });
 });
-      // Enhanced Accordion Functionality
-      document.querySelectorAll(".accordion-header").forEach((button) => {
-        button.addEventListener("click", () => {
-          const accordionItem = button.parentElement;
-          const isActive = accordionItem.classList.contains("active");
-          const body = accordionItem.querySelector(".accordion-body");
-          const icon = button.querySelector(".icon");
+const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+const mobileDropdown = document.querySelector('.mobile-dropdown');
 
-          // Close all other items
-          document.querySelectorAll(".accordion-item").forEach((item) => {
-            if (item !== accordionItem) {
-              item.classList.remove("active");
-              item.querySelector(".icon").textContent = "+";
-              item.querySelector(".accordion-body").style.maxHeight = null;
-            }
-          });
-
-          // Toggle current item
-          if (isActive) {
-            accordionItem.classList.remove("active");
-            icon.textContent = "+";
-            body.style.maxHeight = null;
-          } else {
-            accordionItem.classList.add("active");
-            icon.textContent = "+";
-            body.style.maxHeight = body.scrollHeight + 50 + "px"; // Extra space for padding
-          }
-        });
-      });
-
-      // Initialize first item open
-      window.addEventListener("load", () => {
-        const firstItem = document.querySelector(".accordion-item");
-        if (firstItem && !firstItem.classList.contains("active")) {
-          firstItem.classList.add("active");
-          firstItem.querySelector(".icon").textContent = "−";
-          const body = firstItem.querySelector(".accordion-body");
-          body.style.maxHeight = body.scrollHeight + 50 + "px";
-        }
-      });
-
-    
-    
-// Portfolio Carousel - Fixed & Responsive
-const track = document.querySelector(".track");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-const dotsContainer = document.querySelector(".dots");
-
-// Portfolio Swiper Carousel - Clean Implementation
-window.addEventListener('load', () => {
-  const portfolioSwiper = new Swiper('.portfolio-carousel', {
-    loop: true,
-    speed: 800,
-    spaceBetween: 28,
-    grabCursor: true,
-    centeredSlides: false,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      0: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
-    }
-  });
-});
-// Update card images
-document.querySelectorAll('.card').forEach((card, index) => {
-  const img = card.querySelector('img');
-  if (img && portfolioImages[index]) {
-    img.src = portfolioImages[index];
-    img.alt = `Portfolio Project ${index + 1}`;
-  }
-});
-
-const cards = document.querySelectorAll(".card");
-let currentIndex = 0;
-
-function getVisibleCards() {
-  const width = window.innerWidth;
-  if (width <= 600) return 1;
-  if (width <= 1024) return 2;
-  return 3;
-}
-
-function getCardWidth() {
-  if (cards.length === 0) return 0;
-  return cards[0].offsetWidth;
-}
-
-function getGap() {
-  const trackStyle = window.getComputedStyle(track);
-  return parseInt(trackStyle.gap) || 28;
-}
-
-function getMaxIndex() {
-  const visibleCards = getVisibleCards();
-  return Math.max(0, cards.length - visibleCards);
-}
-
-function updateCarousel() {
-  if (!track || cards.length === 0) return;
-  
-  const cardWidth = getCardWidth();
-  const gap = getGap();
-  const offset = -(currentIndex * (cardWidth + gap));
-  
-  track.style.transform = `translateX(${offset}px)`;
-  updateArrows();
-  updateDots();
-}
-
-function updateArrows() {
-  const maxIndex = getMaxIndex();
-  
-  if (prevBtn) {
-    prevBtn.classList.toggle("disabled", currentIndex === 0);
-    prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-  }
-  
-  if (nextBtn) {
-    nextBtn.classList.toggle("disabled", currentIndex >= maxIndex);
-    nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
-  }
-}
-
-function updateDots() {
-  const dots = dotsContainer.querySelectorAll("span");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentIndex);
+if (mobileDropdownBtn) {
+  mobileDropdownBtn.addEventListener('click', () => {
+    mobileDropdown.classList.toggle('active');
   });
 }
+// Enhanced Accordion Functionality
+document.querySelectorAll(".accordion-header").forEach((button) => {
+  button.addEventListener("click", () => {
+    const accordionItem = button.parentElement;
+    const isActive = accordionItem.classList.contains("active");
+    const body = accordionItem.querySelector(".accordion-body");
+    const icon = button.querySelector(".icon");
 
-function createDots() {
-  if (!dotsContainer) return;
-  
-  dotsContainer.innerHTML = "";
-  const maxIndex = getMaxIndex();
-  const totalDots = maxIndex + 1;
-
-  for (let i = 0; i < totalDots; i++) {
-    const dot = document.createElement("span");
-    if (i === currentIndex) dot.classList.add("active");
-
-    dot.addEventListener("click", () => {
-      currentIndex = i;
-      updateCarousel();
+    // Close all other items
+    document.querySelectorAll(".accordion-item").forEach((item) => {
+      if (item !== accordionItem) {
+        item.classList.remove("active");
+        item.querySelector(".icon").textContent = "+";
+        item.querySelector(".accordion-body").style.maxHeight = null;
+      }
     });
 
-    dotsContainer.appendChild(dot);
+    // Toggle current item
+    if (isActive) {
+      accordionItem.classList.remove("active");
+      icon.textContent = "+";
+      body.style.maxHeight = null;
+    } else {
+      accordionItem.classList.add("active");
+      icon.textContent = "−"; // Use minus for open state
+      body.style.maxHeight = body.scrollHeight + 50 + "px"; // Extra space for padding
+    }
+  });
+});
+
+// Initialize first item open
+window.addEventListener("load", () => {
+  const firstItem = document.querySelector(".accordion-item");
+  if (firstItem && !firstItem.classList.contains("active")) {
+    firstItem.classList.add("active");
+    firstItem.querySelector(".icon").textContent = "−";
+    const body = firstItem.querySelector(".accordion-body");
+    body.style.maxHeight = body.scrollHeight + 50 + "px";
   }
-}
-
-if (prevBtn) {
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
-  });
-}
-
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => {
-    const maxIndex = getMaxIndex();
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
-}
-
-let resizeTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    const maxIndex = getMaxIndex();
-    currentIndex = Math.min(currentIndex, maxIndex);
-    createDots();
-    updateCarousel();
-  }, 200);
 });
 
-// Initialize
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    createDots();
-    updateCarousel();
-  }, 300);
-});
+ const track = document.querySelector(".carousel-track");
+      const cards = document.querySelectorAll(".card");
+      const dots = document.querySelectorAll(".dot");
+      const nextBtn = document.querySelector(".next");
+      const prevBtn = document.querySelector(".prev");
+
+      let index = 1;
+
+      function updateCarousel() {
+        const cardWidth = cards[0].offsetWidth + 32;
+        const containerWidth = document.querySelector(
+          ".portfolio-carousel"
+        ).offsetWidth;
+
+        const offset =
+          index * cardWidth - (containerWidth / 2 - cards[0].offsetWidth / 2);
+
+        track.style.transform = `translateX(-${offset}px)`;
+
+        cards.forEach((card, i) =>
+          card.classList.toggle("active", i === index)
+        );
+
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+      }
+
+      nextBtn.onclick = () => {
+        index = (index + 1) % cards.length;
+        updateCarousel();
+      };
+
+      prevBtn.onclick = () => {
+        index = (index - 1 + cards.length) % cards.length;
+        updateCarousel();
+      };
+
+      updateCarousel();
+      window.addEventListener("resize", updateCarousel);
+
     // Scroll Reveal Animations - Fixed Version
 window.addEventListener('load', () => {
   if (typeof ScrollReveal === 'undefined') {
